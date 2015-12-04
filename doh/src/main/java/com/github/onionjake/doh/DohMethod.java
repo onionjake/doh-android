@@ -23,13 +23,13 @@ public class DohMethod implements Method{
     @Override
     public String Compute(Options o) {
 
-        int length = ((int) Math.ceil(o.length * 6.0 / 8));
+        int length = ((int) Math.ceil(o.getLength() * 6.0 / 8));
         final int iterations = 2000;
 
-        String real_salt = o.sequence + o.domain + o.salt;
+        String real_salt = o.getSequence() + o.getDomain() + o.getSalt();
 
         PKCS5S2ParametersGenerator generator = new PKCS5S2ParametersGenerator(new SHA256Digest());
-        generator.init(o.password.getBytes(),real_salt.getBytes(), iterations);
+        generator.init(o.getPassword().getBytes(),real_salt.getBytes(), iterations);
         KeyParameter key = (KeyParameter)generator.generateDerivedMacParameters(length * 8);
 
         return Base64.encodeToString(key.getKey(), Base64.NO_PADDING | Base64.NO_WRAP);

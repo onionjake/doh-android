@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="user" type="com.github.onionjake.doh.app.User"/>
+        <variable name="options" type="com.github.onionjake.doh.Options"/>
     </data>
     <RelativeLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,19 +16,13 @@
         tools:context="com.github.onionjake.doh.MainActivity"
         tools:showIn="@layout/activity_main">
 
-        <TextView
-            android:id="@+id/main_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
         <android.support.design.widget.TextInputLayout
             android:id="@+id/text_input_domain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/main_description">
+            android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/main_edit_text_domain"
-                android:text="@{user.firstName}"
+                android:text="@{options.domain}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/domain" />
@@ -67,6 +61,19 @@
                 android:hint="@string/master_password"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/main_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_input_password"
+            android:padding="16dp"
+            android:textIsSelectable="true"/>
+        <Button
+            android:id="@+id/button_compute"
+            android:text="@string/compute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_description"/>
     </RelativeLayout>
 </layout>
 

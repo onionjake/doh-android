@@ -5,4 +5,6 @@
     <string name="domain">Domain</string>
     <string name="master_password">Master Password</string>
     <string name="sequence">Sequence</string>
+    <string name="compute">Compute</string>
+    <string name="copied_to_clipboard">Password copied to clipboard</string>
 </resources>

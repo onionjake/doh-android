@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="user" type="com.github.onionjake.doh.app.User"/>
+        <variable name="options" type="com.github.onionjake.doh.Options"/>
     </data>
     <android.support.design.widget.CoordinatorLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -26,7 +26,10 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_main" bind:user="@{user}"/>
+        <include
+            android:id="@+id/content_main"
+            layout="@layout/content_main"
+            bind:options="@{options}"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
