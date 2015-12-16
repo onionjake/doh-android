@@ -29,7 +29,7 @@ public class DohMethod implements Method{
         String real_salt = o.getSequence() + o.getDomain() + o.getSalt();
 
         PKCS5S2ParametersGenerator generator = new PKCS5S2ParametersGenerator(new SHA256Digest());
-        generator.init(o.getPassword().getBytes(),real_salt.getBytes(), iterations);
+        generator.init(o.getPassword(),real_salt.getBytes(), iterations);
         KeyParameter key = (KeyParameter)generator.generateDerivedMacParameters(length * 8);
 
         return Base64.encodeToString(key.getKey(), Base64.NO_PADDING | Base64.NO_WRAP);

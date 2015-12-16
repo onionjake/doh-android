@@ -1,10 +1,13 @@
 package com.github.onionjake.doh;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by jake on 11/28/15.
  */
-public class Options {
-    private String password;
+public class Options implements Parcelable {
+    private byte[] password;
     private String domain;
     private String sequence;
     private String salt;
@@ -14,20 +17,56 @@ public class Options {
 
     }
 
-    public Options(String password, String domain, String sequence, String salt) {
+    public Options(byte[] password, String domain, String sequence, String salt) {
         this.password = password;
         this.domain = domain;
         this.sequence = sequence;
         this.salt = salt;
     }
 
+
+    protected Options(Parcel in) {
+        password = in.createByteArray();
+        domain = in.readString();
+        sequence = in.readString();
+        salt = in.readString();
+        length = in.readInt();
+    }
+
+    public static final Creator<Options> CREATOR = new Creator<Options>() {
+        @Override
+        public Options createFromParcel(Parcel in) {
+            return new Options(in);
+        }
+
+        @Override
+        public Options[] newArray(int size) {
+            return new Options[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeByteArray(password);
+        dest.writeString(domain);
+        dest.writeString(sequence);
+        dest.writeString(salt);
+        dest.writeInt(length);
+    }
+
+
     // region Getter & Setter
 
-    public String getPassword() {
+    public byte[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(byte[] password) {
         this.password = password;
     }
 
