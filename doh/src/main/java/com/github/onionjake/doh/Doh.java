@@ -11,11 +11,11 @@ public class Doh {
     public static String Compute(Options o, Method m, Specs s) {
         Spec spec = s.getDefault();
         Map<String, Spec> specs = s.getSpecs();
-        if(specs.containsKey(o.domain)) {
-            spec = specs.get(o.domain);
+        if(specs.containsKey(o.getDomain())) {
+            spec = specs.get(o.getDomain());
         }
 
-        o.length = spec.maxLength;
+        o.setLength(spec.maxLength);
 
         String password = m.Compute(o);
 

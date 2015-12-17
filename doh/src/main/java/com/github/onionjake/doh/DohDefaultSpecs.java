@@ -1,14 +1,13 @@
 package com.github.onionjake.doh;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by jake on 11/28/15.
+ * Created by dan on 12/2/15.
  */
-public class MockSpecs implements Specs {
+public class DohDefaultSpecs implements Specs {
     @Override
     public Spec getDefault() {
         Spec s = new Spec();

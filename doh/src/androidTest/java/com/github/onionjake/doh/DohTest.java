@@ -12,22 +12,22 @@ public class DohTest extends AndroidTestCase {
     public void testDohMethod() {
         DohMethod d = new DohMethod();
         Options o = new Options();
-        o.domain = "google.com";
-        o.password = "test";
-        o.salt = "";
-        o.sequence = "";
-        o.length = 20;
+        o.setDomain("google.com");
+        o.setPassword("test".getBytes());
+        o.setSalt("");
+        o.setSequence("");
+        o.setLength(20);
 
         assertEquals("vYptHs2mUWBp9+2wYzM2", d.Compute(o));
     }
 
     public void testDoh() {
         Options o = new Options();
-        o.domain = "google.com";
-        o.password = "test";
-        o.salt = "";
-        o.sequence = "";
-        o.length = 20;
+        o.setDomain("google.com");
+        o.setPassword("test".getBytes());
+        o.setSalt("");
+        o.setSequence("");
+        o.setLength(20);
         DohMethod d = new DohMethod();
         MockSpecs ms = new MockSpecs();
 
