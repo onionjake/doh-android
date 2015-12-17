@@ -23,6 +23,7 @@
             <EditText
                 android:id="@+id/main_edit_text_domain"
                 android:text="@{options.domain}"
+                android:inputType="textFilter|textNoSuggestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/domain" />
@@ -34,6 +35,7 @@
             android:layout_below="@id/text_input_domain">
             <EditText
                 android:id="@+id/main_edit_text_salt"
+                android:inputType="textFilter|textNoSuggestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/salt" />
@@ -45,6 +47,7 @@
             android:layout_below="@id/text_input_salt">
             <EditText
                 android:id="@+id/main_edit_text_sequence"
+                android:inputType="textFilter|textNoSuggestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sequence" />
